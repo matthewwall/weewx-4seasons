@@ -49,6 +49,8 @@
         #end for
         <td class="units">$unit.label.heatindex</td>
       </tr>
+
+#if $day.windchill.has_data
       <tr>
         <td class="label">$obs.label.windchill</td>
         #for $archive in $archive_data
@@ -59,6 +61,8 @@
         #end for
         <td class="units">$unit.label.windchill</td>
       </tr>
+#end if
+
       <tr>
         <td class="label">$obs.label.dewpoint</td>
         #for $archive in $archive_data
@@ -83,6 +87,8 @@
         #end for
         <td class="units">$unit.label.outHumidity</td>
       </tr>
+
+#if $day.barometer.has_data
       <tr>
         <td class="label">$obs.label.barometer</td>
         #for $archive in $archive_data
@@ -95,6 +101,9 @@
         #end for
         <td class="units">$unit.label.barometer</td>
       </tr>
+#end if
+
+#if $day.rain.has_data
       <tr>
         <td class="label">$obs.label.rain</td>
         #for $archive in $archive_data
@@ -113,6 +122,9 @@
         #end for
         <td class="units">$unit.label.rainRate</td>
       </tr>
+#end if
+
+#if $day.windSpeed.has_data
       <tr>
         <td class="label">Wind Max</td>
         #for $archive in $archive_data
@@ -160,8 +172,9 @@
           $unit.label.windDir
         </td>
       </tr>
+#end if
 
-      #if $day.UV.has_data
+#if $day.UV.has_data
       <tr>
         <td class="label">$obs.label.UV</td>
         #for $archive in $archive_data
@@ -174,9 +187,9 @@
         #end for
         <td class="units">$unit.label.UV</td>
       </tr>
-      #end if
+#end if
 
-      #if $day.ET.has_data and $day.ET.sum.raw > 0.0
+#if $day.ET.has_data and $day.ET.sum.raw > 0.0
       <tr>
         <td class="label">$obs.label.ET</td>
         #for $archive in $archive_data
@@ -189,9 +202,9 @@
         #end for
         <td class="units">$unit.label.ET</td>
       </tr>
-      #end if
+#end if
 
-      #if $day.radiation.has_data
+#if $day.radiation.has_data
       <tr>
         <td class="label">$obs.label.radiation</td>
         #for $archive in $archive_data
@@ -204,9 +217,9 @@
         #end for
         <td class="units">$unit.label.radiation</td>
       </tr>
-      #end if
+#end if
 
-      #if $day.inTemp.has_data
+#if $day.inTemp.has_data
       <tr>
         <td class="label">$obs.label.inTemp</td>
         #for $archive in $archive_data
@@ -219,9 +232,9 @@
         #end for
         <td class="units">$unit.label.inTemp</td>
       </tr>
-      #end if
+#end if
 
-      #if $day.extraTemp1.has_data
+#if $day.extraTemp1.has_data
       <tr>
         <td class="label">$obs.label.extraTemp1</td>
         #for $archive in $archive_data
@@ -234,9 +247,9 @@
         #end for
         <td class="units">$unit.label.extraTemp1</td>
       </tr>
-      #end if
+#end if
 
-      #if $day.extraTemp2.has_data
+#if $day.extraTemp2.has_data
       <tr>
         <td class="label">$obs.label.extraTemp2</td>
         #for $archive in $archive_data
@@ -249,9 +262,9 @@
         #end for
         <td class="units">$unit.label.extraTemp2</td>
       </tr>
-      #end if
+#end if
 
-      #if $day.extraTemp3.has_data
+#if $day.extraTemp3.has_data
       <tr>
         <td class="label">$obs.label.extraTemp3</td>
         #for $archive in $archive_data
@@ -264,7 +277,83 @@
         #end for
         <td class="units">$unit.label.extraTemp3</td>
       </tr>
-      #end if
+#end if
+
+#if $day.extraTemp4.has_data
+      <tr>
+        <td class="label">$obs.label.extraTemp4</td>
+        #for $archive in $archive_data
+        <td class="data new_row hilo_$archive[0]">
+          <span title="$archive[1].extraTemp4.maxtime">
+            $archive[1].extraTemp4.max.format(add_label=False)</span><br/>
+          <span title="$archive[1].extraTemp4.mintime">
+            $archive[1].extraTemp4.min.format(add_label=False)</span>
+        </td>
+        #end for
+        <td class="units">$unit.label.extraTemp4</td>
+      </tr>
+#end if
+
+#if $day.extraTemp5.has_data
+      <tr>
+        <td class="label">$obs.label.extraTemp5</td>
+        #for $archive in $archive_data
+        <td class="data new_row hilo_$archive[0]">
+          <span title="$archive[1].extraTemp5.maxtime">
+            $archive[1].extraTemp5.max.format(add_label=False)</span><br/>
+          <span title="$archive[1].extraTemp5.mintime">
+            $archive[1].extraTemp5.min.format(add_label=False)</span>
+        </td>
+        #end for
+        <td class="units">$unit.label.extraTemp5</td>
+      </tr>
+#end if
+
+#if $day.extraTemp6.has_data
+      <tr>
+        <td class="label">$obs.label.extraTemp6</td>
+        #for $archive in $archive_data
+        <td class="data new_row hilo_$archive[0]">
+          <span title="$archive[1].extraTemp6.maxtime">
+            $archive[1].extraTemp6.max.format(add_label=False)</span><br/>
+          <span title="$archive[1].extraTemp6.mintime">
+            $archive[1].extraTemp6.min.format(add_label=False)</span>
+        </td>
+        #end for
+        <td class="units">$unit.label.extraTemp6</td>
+      </tr>
+#end if
+
+#if $day.extraTemp7.has_data
+      <tr>
+        <td class="label">$obs.label.extraTemp7</td>
+        #for $archive in $archive_data
+        <td class="data new_row hilo_$archive[0]">
+          <span title="$archive[1].extraTemp7.maxtime">
+            $archive[1].extraTemp7.max.format(add_label=False)</span><br/>
+          <span title="$archive[1].extraTemp7.mintime">
+            $archive[1].extraTemp7.min.format(add_label=False)</span>
+        </td>
+        #end for
+        <td class="units">$unit.label.extraTemp7</td>
+      </tr>
+#end if
+
+#if $day.extraTemp8.has_data
+      <tr>
+        <td class="label">$obs.label.extraTemp8</td>
+        #for $archive in $archive_data
+        <td class="data new_row hilo_$archive[0]">
+          <span title="$archive[1].extraTemp8.maxtime">
+            $archive[1].extraTemp8.max.format(add_label=False)</span><br/>
+          <span title="$archive[1].extraTemp8.mintime">
+            $archive[1].extraTemp8.min.format(add_label=False)</span>
+        </td>
+        #end for
+        <td class="units">$unit.label.extraTemp8</td>
+      </tr>
+#end if
+
     </tbody>
   </table>
   </div>
